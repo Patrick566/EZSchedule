@@ -1,2 +1,2 @@
-# EZSchedule
+# EZTranslate
 A calendar website
