@@ -1,2 +1,2 @@
 # EZTranslate
-A calendar website
+A translater website
