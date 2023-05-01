@@ -1,0 +1,70 @@
+/* Set background color */
+body {
+    background-color: #cfd7cd;
+  }
+  
+  /* Set header style */
+  .navbar {
+    background-color: #563635;
+    display: flex;
+    justify-content: center;
+    border-radius: 30px;
+  }
+  #nav-container {
+    margin-bottom: 0;
+  }
+
+  .navbar-brand {
+    margin-right: auto;
+    margin-bottom: 0px;
+  }
+
+  img {
+    width: 30px;
+  }
+  
+  .nav-link {
+    margin-left: auto;
+  }
+  
+  /* Set user icon
+  .fas.fa-user {
+    font-size: 2rem;
+
+  }
+
+  .nav-link {
+    padding: 0;
+    font-size: 1.5rem;
+  } */
+  
+  /* Set search bar styles
+  .form-control {
+    border: none;
+    background-color: #f7f7f7;
+    color: #555;
+    font-size: 1.2rem;
+  } */
+  
+  .search-btn {
+    background-color: #78C091;
+    color: #fff;
+    margin-top: 10px;
+  }
+  
+  /* Set list styles */
+  li {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .words {
+    color: #78C091;
+    font-size: 1.5rem;
+    margin-right: 10px;
+
+  }
+
+
+  /* Set
+  
