@@ -17,17 +17,17 @@ def login():
                 new_user = User(username, password)
                 db_session.add(new_user)
                 db_session.commit()
-                # flash("You have successfully signed up, Welcome to EZTranslate!", "info")
+                flash("Welcome " + username + "! You have successfully signed up")
                 session["username"] = username
                 return render_template("search.html")
             else:
-                flash("Your Username is alread in use, please Login instead", "info")
+                flash("Your Username is alread in use, please Login instead")
                 return render_template("home.html")
         elif formtype == "login":
             username = request.form["username"]
             password = request.form["password"]
             if db_session.query(User).where((User.user_name == username) & (User.password == password)).first() is not None:
-                # flash("You have successfully signed up, Welcome to EZTranslate!", "info")
+                flash("Welcome back " + username + "! You have successfully logged in")
                 session["username"] = username
                 return render_template("search.html")
             else:
@@ -35,8 +35,6 @@ def login():
                 return render_template("home.html")
     if request.method == "GET":
         return render_template("home.html")
-
-
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
@@ -53,12 +51,13 @@ def search():
             return render_template("extension.html", definition = definition)
         else:
             flash("Word does not exist in our database")
-        return render_template 
-     
+            return render_template("search.html")
 
 @app.route("/dictionary")
 def dictionary():
-    return render_template("dictionary.html")
+    definitions = db_session.query(Word).all()
+    print(definitions)
+    return render_template("dictextension.html", definitons = definitions)
 
 
 if __name__ == "__main__":

@@ -47,18 +47,18 @@
                   <button type="submit" class="btn rounded-pill px-4 search-btn">Go</button>
                 </div>
               </form>
-
-              <!-- List -->
-              <ul class="list-unstyled">
-                <li><i class="words"></i>Recently used words:</li>
-                <ol>
-                  <li><i class="words"></i>word</li>
-                  <li><i class="words"></i>word</li>
-                  <li><i class="words"></i>word</li>
-                  <li><i class="words"></i>word</li>
-                  <li><i class="words"></i>word</li>
-              </ol>
-              </ul>
+              <div>
+                <p class="words">Welcome to EZTranslate! Simply search a word to begin.</p>
+                {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                    {% for msg in messages %}
+                      <div class="alert alert-info" role="alert">
+                        {{msg}}
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
+              </div>
             </div>
           </div>
         </div>

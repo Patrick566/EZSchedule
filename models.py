@@ -61,4 +61,4 @@ class Word(Base):
         self.definition = definition
 
     def __repr__(self):
-        return self.definition
+        return self. word +": " + self.definition
