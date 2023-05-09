@@ -18,6 +18,7 @@ def login():
                 db_session.add(new_user)
                 db_session.commit()
                 # flash("You have successfully signed up, Welcome to EZTranslate!", "info")
+                session["username"] = username
                 return render_template("search.html")
             else:
                 flash("Your Username is alread in use, please Login instead", "info")
@@ -27,6 +28,7 @@ def login():
             password = request.form["password"]
             if db_session.query(User).where((User.user_name == username) & (User.password == password)).first() is not None:
                 # flash("You have successfully signed up, Welcome to EZTranslate!", "info")
+                session["username"] = username
                 return render_template("search.html")
             else:
                 flash("You Password or Username is incorrect, please Sign up instead", "info")
@@ -38,7 +40,20 @@ def login():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    return render_template("search.html")
+    if request.method == "GET":
+        if "username" in session:
+            return render_template("search.html", username=session["username"])
+        else:
+            return render_template("search.html")
+        
+    if request.method == "POST":
+        search = request.form["search"]
+        definition = db_session.query(Word).where(Word.word == search).first()
+        if definition is not None:
+            return render_template("extension.html", definition = definition)
+        else:
+            flash("Word does not exist in our database")
+        return render_template 
      
 
 @app.route("/dictionary")

@@ -60,5 +60,5 @@ class Word(Base):
         self.word = word
         self.definition = definition
 
-    # def __repr__(self):
-    #     return self.date + " at " + self.time + " with " + str(self.vet)
+    def __repr__(self):
+        return self.definition
